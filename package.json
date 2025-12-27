@@ -7,6 +7,10 @@
     "build": "tsc",
     "prepublishOnly": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghivert/vite-plugins.git"
+  },
   "keywords": [
     "gleam",
     "react",
@@ -20,6 +24,11 @@
     "chouquette"
   ],
   "license": "MIT",
+  "files": [
+    "src/**/*.mjs",
+    "src/**/*.d.mts",
+    "src/**/*.d.mts.map"
+  ],
   "exports": {
     ".": null,
     "./gleam": "./src/gleam.mjs",
