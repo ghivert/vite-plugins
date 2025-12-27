@@ -82,7 +82,7 @@ integrate perfectly with TypeScript and other JavaScript packages. However, when
 using Gleam, JavaScript files are simply copy-pasted as-is, and the paths won't
 be rewritten. For example, let's say you write your FFI like this.
 
-```json
+```jsonc
 // package.json
 // Define an import path pointing to the Gleam prelude.
 // The Gleam `build` folder is always at root of the project, alongside the
@@ -90,8 +90,8 @@ be rewritten. For example, let's say you write your FFI like this.
 // sub-path will always resolve correctly.
 {
   "imports": {
-    "#gleam/prelude": "./build/dev/javascript/prelude.mjs"
-  }
+    "#gleam/prelude": "./build/dev/javascript/prelude.mjs",
+  },
 }
 ```
 
