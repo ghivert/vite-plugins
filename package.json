@@ -1,6 +1,6 @@
 {
   "name": "@chouquette/vite",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Use various loaders for Vite, including Gleam, Redraw & TypeScript aliases.",
   "type": "module",
   "scripts": {
