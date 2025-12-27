@@ -1,2 +1,4 @@
-dist
-node_modules
+dist/
+node_modules/
+*.d.mts
+*.d.mts.map

@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Use various loaders for Vite, including Gleam, Redraw & TypeScript aliases.",
   "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "tsc"
+  },
   "keywords": [
     "gleam",
     "react",
