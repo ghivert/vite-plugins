@@ -1,0 +1,38 @@
+{
+  "name": "@chouquette/vite",
+  "version": "0.1.0",
+  "description": "Use various loaders for Vite, including Gleam, Redraw & TypeScript aliases.",
+  "type": "module",
+  "keywords": [
+    "gleam",
+    "react",
+    "redraw",
+    "typescript",
+    "vite",
+    "vite-plugin"
+  ],
+  "authors": [
+    "Enderchief",
+    "chouquette"
+  ],
+  "license": "MIT",
+  "exports": {
+    ".": null,
+    "./gleam": "./src/gleam.mjs",
+    "./redraw": "./src/redraw.mjs",
+    "./packages": "./src/packages.mjs"
+  },
+  "dependencies": {
+    "magic-string": "^0.30.21",
+    "toml": "^3.0.0"
+  },
+  "peerDependencies": {
+    "vite": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}
