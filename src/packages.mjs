@@ -1,6 +1,7 @@
 import * as fs from "node:fs"
 import * as path from "node:path"
 import * as toml from "toml"
+import * as JSONC from "jsonc-parser"
 
 /** Compute the aliases paths for Gleam & TypeScript, according to the
  * `tsconfig.json` in the dirname folder & every subpaths in Gleam's package
@@ -35,7 +36,7 @@ async function gleamPaths(dirname) {
       if (!requirement.path) return []
       const modulePath = path.resolve(dirname, requirement.path, "package.json")
       if (!fs.existsSync(modulePath)) return []
-      const packageJson = JSON.parse(await readFile(modulePath))
+      const packageJson = JSONC.parse(await readFile(modulePath))
       if (!packageJson.imports) return []
       return Object.entries(packageJson.imports).map(entry => {
         return keepImport(dirname, entry)
@@ -62,7 +63,7 @@ function keepImport(dirname, entry) {
  * */
 async function tsPaths(dirname) {
   const tsConfigPath = path.resolve(dirname, "tsconfig.json")
-  const tsConfig = JSON.parse(await readFile(tsConfigPath))
+  const tsConfig = JSONC.parse(await readFile(tsConfigPath))
   const paths = tsConfig.compilerOptions?.paths ?? {}
   return Object.entries(paths).flatMap(([key, value]) => {
     const newKey = key.replace(/\/\*$/g, "")
