@@ -1,9 +1,0 @@
-{
-  "name": "@chouquette/vite-redraw",
-  "exports": "./src/redraw.mjs",
-  "version": "1.0.0",
-  "peerDependencies": {
-    "@chouquette/gleam": "^1.14.0",
-    "vite": "^8.0.0"
-  }
-}
