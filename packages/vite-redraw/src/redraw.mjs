@@ -29,16 +29,18 @@ export default plugin
  * */
 export function plugin(opts = {}) {
   return {
-    name: "chouquette-redraw",
+    name: "chouquette-vite-redraw",
     /** @param {string} code @param {string} id */
     async transform(code, id) {
       const matcher = createRedrawMatcher(opts)
       if (!id.match(matcher)) return null
       // Use the exposed transform from vite, instead of directly
       // transforming with esbuild
-      return vite.transformWithEsbuild(code, id, {
-        loader: "jsx",
-        jsx: "automatic",
+      return vite.transformWithOxc(code, id, {
+        jsx: {
+          refresh: true,
+          runtime: "automatic",
+        },
       })
     },
   }

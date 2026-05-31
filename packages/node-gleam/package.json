@@ -1,0 +1,9 @@
+{
+  "name": "@chouquette/node-gleam",
+  "type": "module",
+  "exports": "./src/node-loader.mjs",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@chouquette/gleam": "^1.14.0"
+  }
+}
