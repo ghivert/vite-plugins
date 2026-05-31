@@ -12,7 +12,8 @@
     // "lib": ["esnext"],
     "types": ["node"],
     // and npm install -D @types/node
-    "outDir": "dist",
+    "outDir": "./dist",
+    "rootDir": "./src",
 
     // Other Outputs
     "sourceMap": true,

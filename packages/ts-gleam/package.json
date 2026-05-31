@@ -1,7 +1,9 @@
 {
   "name": "@chouquette/ts-gleam",
   "version": "1.0.0",
-  "main": "src/index.cjs",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^25.9.1",
     "typescript": "^6.0.3"

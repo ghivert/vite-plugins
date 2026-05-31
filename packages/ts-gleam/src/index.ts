@@ -21,39 +21,31 @@ const init: ts.server.PluginModuleFactory = ({ typescript }) => ({
       return null
     }
 
-    function createModuleResolver(containingFile: string) {
-      return (
-        moduleName: ts.StringLiteralLike,
-        resolveModule: () =>
-          | ts.ResolvedModuleWithFailedLookupLocations
-          | undefined,
-      ) => {
-        const text = moduleName.text
-        logger.info(`[ts-gleam-plugin] resolving: ${text}`)
-        if (!text.startsWith('gleam:')) return undefined
+    function moduleResolver(moduleName: ts.StringLiteralLike) {
+      const text = moduleName.text
+      logger.info(`[ts-gleam-plugin] resolving: ${text}`)
+      if (!text.startsWith('gleam:')) return undefined
 
-        const mod = text.slice(6)
-        if (mod === 'prelude') {
-          const preludePath = path.join(buildDir, 'prelude.d.mts')
-          if (fs.existsSync(preludePath)) {
-            return {
-              extension: typescript.Extension.Dmts,
-              isExternalLibraryImport: false,
-              resolvedFileName: preludePath,
-            }
-          }
-          return undefined
-        }
-
-        const resolved = findCompiledModule(mod)
-        if (resolved) {
+      const mod = text.slice(6)
+      if (mod === 'prelude') {
+        const preludePath = path.join(buildDir, 'prelude.d.mts')
+        if (fs.existsSync(preludePath)) {
           return {
             extension: typescript.Extension.Dmts,
             isExternalLibraryImport: false,
-            resolvedFileName: resolved,
+            resolvedFileName: preludePath,
           }
         }
-        return undefined
+        return
+      }
+
+      const resolved = findCompiledModule(mod)
+      if (resolved) {
+        return {
+          extension: typescript.Extension.Dmts,
+          isExternalLibraryImport: false,
+          resolvedFileName: resolved,
+        }
       }
     }
 
@@ -68,9 +60,8 @@ const init: ts.server.PluginModuleFactory = ({ typescript }) => ({
       const prior = info.languageService.getSemanticDiagnostics(fileName)
       // Filter out "cannot find module" errors for gleam: imports
       return prior.filter(d => {
-        if (d.code === 2307 && typeof d.messageText === 'string') {
+        if (d.code === 2307 && typeof d.messageText === 'string')
           return !d.messageText.includes("'gleam:")
-        }
         return true
       })
     }
@@ -90,15 +81,9 @@ const init: ts.server.PluginModuleFactory = ({ typescript }) => ({
           containingFile,
           ...rest,
         )
-        const moduleResolver = createModuleResolver(containingFile)
         return modulesLiterals.map((moduleName, index) => {
           try {
-            const resolvedModule = moduleResolver(moduleName, () => {
-              return info.languageServiceHost.getResolvedModuleWithFailedLookupLocationsFromCache?.(
-                moduleName.text,
-                containingFile,
-              )
-            })
+            const resolvedModule = moduleResolver(moduleName)
             if (resolvedModule) return { resolvedModule }
             return resolvedModules[index]!
           } catch (e) {
