@@ -1,0 +1,33 @@
+{
+  "name": "@chouquette/gleam-ts-loader",
+  "version": "1.0.0",
+  "exports": "./dist/index.js",
+  "author": "Guillaume Hivert",
+  "description": "TypeScript plugin bringing types when using `gleam:` protocol.",
+  "type": "commonjs",
+  "license": "MIT",
+  "keywords": [
+    "gleam",
+    "node",
+    "loader",
+    "ffi",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">= 24"
+  },
+  "scripts": {
+    "prepublish": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghivert/gleam-loaders"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3"
+  },
+  "files": [
+    "dist/*"
+  ]
+}

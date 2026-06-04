@@ -1,0 +1,25 @@
+{
+  "name": "@chouquette/gleam-node-loader",
+  "type": "module",
+  "description": "Node Loader handling `gleam:` protocol, to load Gleam files directly in Node.js.",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 24"
+  },
+  "keywords": [
+    "gleam",
+    "node",
+    "loader",
+    "ffi"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghivert/gleam-loaders"
+  },
+  "exports": "./src/node-loader.mjs",
+  "author": "Guillaume Hivert",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@chouquette/gleam": "^1.14.0"
+  }
+}

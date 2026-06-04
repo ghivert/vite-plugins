@@ -1,7 +1,4 @@
-import * as vite from "vite"
-
-/** Generates custom logger to avoid Gleam <> JS errors. */
-declare function customLogger(): vite.Logger
+import * as vite from 'vite'
 
 /** Resolves `gleam:...` imports to the compiled Gleam output.
  * `import { foo } from 'gleam:my_module'` resolves to

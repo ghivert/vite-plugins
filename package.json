@@ -1,5 +1,5 @@
 {
-  "name": "@chouquette/gleam-forge",
+  "name": "@chouquette/gleam-loaders",
   "private": true,
   "workspaces": [
     "packages/*"
