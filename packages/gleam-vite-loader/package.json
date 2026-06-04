@@ -21,6 +21,7 @@
   "files": [
     "src/**/*.mjs",
     "src/**/*.d.mts",
+    "src/**/*.d.ts",
     "src/**/*.d.mts.map"
   ],
   "exports": {
