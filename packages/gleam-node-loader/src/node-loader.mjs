@@ -1,2 +1,3 @@
-import { register } from "node:module"
-register("./gleam.mjs", import.meta.url)
+import { registerHooks } from 'node:module'
+import { resolve } from './gleam.mjs'
+registerHooks({ resolve })
