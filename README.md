@@ -13,7 +13,8 @@ using the `gleam:` prefix, like in Gleam.
 
 ```js
 import * as gleam from 'gleam:prelude'
-import * as my_module from 'gleam:my_module'
+// For the Gleam module `example/my_module.gleam`.
+import * as my_module from 'gleam:example/my_module'
 
 const res = my_module.my_function()
 if (gleam.Result$isOk(res)) {
