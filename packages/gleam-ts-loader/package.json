@@ -1,7 +1,8 @@
 {
   "name": "@chouquette/gleam-ts-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "exports": "./dist/index.js",
+  "main": "./dist/index.js",
   "author": "Guillaume Hivert",
   "description": "TypeScript plugin bringing types when using `gleam:` protocol.",
   "type": "commonjs",
