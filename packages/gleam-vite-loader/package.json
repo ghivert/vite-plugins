@@ -33,7 +33,7 @@
   },
   "peerDependencies": {
     "@chouquette/gleam": "^1.14.0",
-    "vite": "^7.3.0"
+    "vite": "^7.3.0 || ^8.0.0"
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
