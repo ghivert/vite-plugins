@@ -1,6 +1,6 @@
 {
   "name": "@chouquette/gleam-vite-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vite Loader handling `gleam:` protocol, to load Gleam files directly.",
   "type": "module",
   "scripts": {
